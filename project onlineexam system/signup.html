@@ -1,0 +1,353 @@
+<html>
+
+<head>
+
+<title>Signup Form</title> <script language="JavaScript">
+
+var valueofpass1=""; var valueofpass2=""; var whitespace="\t\n\r"; function isEmpty(s)
+
+{
+
+return((s==null)||(s.length==0))
+
+}
+ 
+
+
+
+function isWhitespace(s){ var i;
+
+if(isEmpty(s)) return true; for(i=0;i<s.length;i++){ var currchar=s.charAt(i);
+
+if(whitespace.indexOf(currchar)==-1) return false;
+
+}
+
+return true;
+
+}
+
+function isEmail(eadd){
+
+var i=1;
+
+var sLength=eadd.length;
+
+while((i<sLength) && (eadd.charAt(i)!="@")){ i++;
+
+}
+
+if((i>=sLength)|| (eadd.charAt(i)!="@")) return false;
+
+else i+=2;
+
+while((i<sLength)&&(eadd.charAt(i)!=".")){
+
+i++;
+
+}
+
+if((i>=sLength-1)|| (eadd.charAt(i)!=".")) return false;
+
+else
+
+return true;
+
+}
+
+function isCharsInBag(string,bag){ var i;
+
+for(i=0;i<string.length;i++){ var charval=string.charAt(i);
+
+if(bag.indexOf(charval)==-1) return false;
+
+}
+
+return true;
+
+}
+
+function isNumberInPass(string,bag){ var i,flag;
+
+flag=0;
+
+for(i=0;i<string.length;i++){ var charval=string.charAt(i); if(bag.indexOf(charval)==-1){ continue;
+
+}
+ 
+
+
+
+else{
+
+flag=1;
+
+break;
+
+}
+
+}
+
+if(flag==1) { return true;}
+
+else{ return false;
+
+}
+
+return false;
+
+}
+
+function verify(){ var flag=0; for(i=0;i<=4;i++){
+
+if(document.forms[0].elements[i].value==""){
+
+alert("Please fill in the "+ document.forms[0].elements[i].name +" field"); document.forms[0].elements[i].focus();
+
+flag=1;
+
+break;
+
+}
+
+}
+
+if(flag==1){
+
+return(false);
+
+}
+
+if(flag==0){
+
+var email=document.forms[0].elements[2].value; if(!isEmail(email)){
+
+alert("Please enter a valid email address"); document.forms[0].elements[2].focus(); return false;
+
+}
+
+var passwd=document.forms[0].elements[3].value;
+
+if(!isCharsInBag(passwd,"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+
+){
+
+alert("Password must only contain alphabets and numbers"); return false;
+
+}
+
+else if(passwd.length<5){
+
+alert("Password must be 5 or more charcters."); return false;
+
+}
+
+else if(passwd.length>8){
+
+alert("Password must be 8 or less charcters."); return false;
+ 
+
+
+
+}
+
+else if(!isNumberInPass(passwd,"0123456789")){ alert("Password must have atleast one number."); return false;
+
+}
+
+else if(document.forms[0].elements[3].value != document.forms[0].elements[4].value){ alert("Your passwords donot match.Please retype and try again.");
+
+return false;
+
+}
+
+}
+
+return(true);
+
+}
+
+function Abort(){ history.back();
+
+}
+
+</script>
+</head>
+
+
+<BODY bottomMargin=0 aLink=#f0f0f0 leftMargin=90 rightMargin=90 link=#f0f0f0 topMargin=5 bgColor=#98afc7 vLink=#f0f0f0 >
+
+
+
+<TABLE border=10 cellSpacing=0 cellPadding=0 width="100%" bgColor=#4e9258> <TR>
+
+<TD vAlign=top align=middle>
+
+<TABLE bgcolor=#f0f0f0 border=0 cellSpacing=0 cellPadding=0 width=140 align=center>
+
+<TR>
+
+<TD height=100 width="25%"><IMG border=0 alt="" src="2.jpg" width=250
+
+height=100>&nbsp;</TD>
+
+<TD height=100 width="50%"><IMG border=0 alt="" src="14.jpg" width=580
+
+height=100>
+
+</TD>
+
+<TD height=100 width="25%"><IMG border=0 alt="" src="6.jpg" width=250
+
+height=100>&nbsp;</TD>
+
+</TR>
+
+</TABLE>
+
+<TABLE border=10 cellSpacing=10 cellPadding=0 width="100%" bgColor=#54c571>
+ 
+
+
+
+<TR>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT color=#000000 size=3 face=Arial><B><A href="index.html">HOME</A></B></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><A
+
+href="contact.html"><B>Exam list</B></A></FONT></TD> <TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><B><A href="institute.html">Institute </A></B></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><B><A href="student.html">Student</A></B></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><B><A href="contact.html"></A></B></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><B><A href="about_us.html">About Us </A></B></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><B><A href="FAQ.html">Help/FAQ</A></B></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><A
+
+href="contact.html"><B>Contact us</B></A></FONT></TD></TR></TABLE>
+
+<TABLE border=10 cellSpacing=0 cellPadding=0 width="100%"> <TR>
+
+<TD bgColor=#617c58><B><FONT color=#ff7000 size=3 face=Tahoma center>
+
+<MARQUEE onmouseover=this.stop() onmouseout=this.start()>Take a.<FONT color=#cf000 size=2 face=Tahoma><A href="sdetail.html"> Sample Online Test</A></FONT></MARQUEE></FONT></B> </TD></TR></TABLE>
+
+<FORM action="isignup.html" method="post" onSubmit="return verify()">
+
+<TABLE border=0 cellSpacing=0 cellPadding=10 width="100%" bgcolor=#ffffff align=center> <tbody>
+
+<TABLE border=0 cellSpacing=0 cellPadding=10 width="100%" bgcolor=#ffffff align=center> <tbody>
+
+<tr>
+
+<td width=30%><img src="20.jpg" width=200 height=150></td> <td align=""><font size=7><b>Institute SignUp Form</b></font></td>
+
+</tr>
+
+</tbody>
+ 
+
+
+
+</TABLE>
+
+<TABLE border=0 cellSpacing=0 cellPadding=10 width="100%" bgcolor=#ffffff align=center> <tbody>
+
+<tr>
+
+<td align="center" colspan="2"><b><h2>Enter the Institute details:</h2></b> </td> </tr>
+
+<tr>
+
+<td align=right width="50%"><b><font color=#df2332 size=4>Login Name:</font></b></td> <td><input name=LoginName type=text></td>
+
+</tr>
+
+<tr>
+
+<td align=right><b><font color=#df2332 size=4>Institute Name:</font></b></td> <td><input name=InstituteName type=text></td>
+
+</tr>
+
+<tr>
+
+<td align=right><b><font color=#df2332 size=4>Email Address:</font></b></td> <td><input name=Email type=text></td>
+
+</tr>
+
+<tr>
+
+<td align=right><b><font color=#df2332 size=4>Password:</font></b></td> <td><input name=Password type=password></td>
+
+</tr>
+
+<tr>
+
+<td align=right><b><font color=#df2332 size=4>Confirm Password:</font></b></td> <td><input name=ConfirmPassword type=password></td>
+
+</tr>
+
+</tbody>
+
+</TABLE>
+
+<TABLE border=0 cellSpacing=0 cellPadding=10 width="100%" bgcolor=#ffffff align=center> <tbody>
+
+<tr>
+
+<td>&nbsp</td>
+
+<td align="center" colspan="4"><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+
+<input type="button" value="Abort" onClick="Abort()"/> </td>
+
+</tr>
+
+</tbody>
+
+</TABLE>
+
+<TABLE border=0 cellSpacing=0 cellPadding=10 width="100%" bgcolor=#ffffff align=center> <tbody>
+
+<tr>
+
+<td><font color=grey face=Verdana size=2><b>PASSWORD RULES:</b></font></td></tr> <tr>
+ 
+
+
+
+<td><font color=grey face=Verdana size=1><b>Password's minimum length is 5 charcters.</b></font></td></tr>
+
+<tr>
+
+<td><font color=grey face=Verdana size=1><b>Password's maximum length is 8 characters.</b></font></td></tr>
+
+<tr>
+
+<td><font color=grey face=Verdana size=1><b>Password should have atleast 1 digit included.</b></font></td></tr>
+
+<tr>
+
+<td><font color=grey face=Verdana size=1><b>Other than alphabets and digits no other values are allowed.</b></font></td></tr>
+
+</tbody></TABLE>
+
+<br>
+
+</tbody></TABLE>
+
+</FORM>
+
+</TD>
+
+</TR>
+
+</TABLE>
+
+</body>
+
+</html>

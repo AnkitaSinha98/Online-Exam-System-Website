@@ -1,0 +1,272 @@
+<html>
+
+<head>
+
+<title>Exam Details</title> <script language="JavaScript">
+
+var valueofpass1=""; var valueofpass2=""; var whitespace="\t\n\r";
+ 
+
+
+
+function isEmpty(s)
+
+{
+
+return((s==null)||(s.length==0))
+
+}
+
+function isNumber(string,bag){ var i,flag;
+
+flag=1;
+
+for(i=0;i<string.length;i++){ var charval=string.charAt(i); if(bag.indexOf(charval)==-1){ flag=0;
+
+break;
+
+}
+
+}
+
+if(flag==1) { return true;
+
+}
+
+else{ return false;
+
+}
+
+}
+
+function verify(){ var flag=0; for(i=0;i<6;i++){
+
+if(document.forms[0].elements[i].value==""){
+
+alert("Please fill in the "+ document.forms[0].elements[i].name +" field"); document.forms[0].elements[i].focus();
+
+flag=1;
+
+break;
+
+}
+
+
+
+}
+
+if(flag==1){
+
+return(false);
+
+}
+
+if(flag==0){
+
+var tim = document.forms[0].elements[1].value; if(!isNumber(tim,"1234567890"))
+
+{ alert("Invalid Time.Enter time in minutes"); document.forms[0].elements[1].focus; return(false);
+
+}
+
+for(i=2;i<6;i++) { if(i==3) continue;
+
+var marks = document.forms[0].elements[i].value; if(!isNumber(marks,"1234567890."))
+
+{
+ 
+
+
+
+alert("Invalid "+ document.forms[0].elements[i].name+". Enter only numbers."); document.forms[0].elements[i].focus;
+
+return(false);
+
+}
+
+}
+
+var nquestn = document.forms[0].elements[3].value; if(!isNumber(nquestn,"1234567890"))
+
+{ alert("Invalid No. Of questions"); document.forms[0].elements[3].focus; return(false);
+
+}
+
+}
+
+return(true);
+
+}
+
+function Abort(){ history.back();
+
+}
+
+</script>
+
+</head>
+
+<BODY bottomMargin=0 aLink=#f0f0f0 leftMargin=90 rightMargin=90 link=#f0f0f0 topMargin=5 bgColor=#98afc7 vLink=#f0f0f0 >
+
+
+
+<TABLE border=10 cellSpacing=0 cellPadding=0 width="100%" bgColor=#4e9258> <TR>
+
+<TD vAlign=top align=middle>
+
+<TABLE bgcolor=#f0f0f0 border=0 cellSpacing=0 cellPadding=0 width=140 align=center>
+
+<TR>
+
+<TD height=100 width="25%"><IMG border=0 alt="" src="2.jpg" width=250 height=100>&nbsp;</TD>
+
+<TD height=100 width="50%"><IMG border=0 alt="" src="14.jpg" width=580
+
+height=100>
+
+</TD>
+
+<TD height=100 width="25%"><IMG border=0 alt="" src="6.jpg" width=250 height=100>&nbsp;</TD>
+
+</tr>
+
+<TABLE border=10 cellSpacing=10 cellPadding=0 width="100%" bgColor=#54c571>
+ 
+
+
+
+<TR>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT color=#000000 size=3 face=Arial><B><A href="afterisignup2.html">HOME</A></B></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><B><A href="contact.htm">Exam Details </A></B></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><B><A
+
+href="contact.html">Student List</A></B></FONT></TD> <TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><B><A href="contact.html"></A></B></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><A href="contact.html"><B>Questions</B></A></FONT></TD> <TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><A href="contact.html"><B>Results</B></A></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><B><A href="contact.html">Edit Exam Details </A></B></FONT></TD>
+
+<TD bgColor=#e56e94 vAlign=top align=middle><FONT size=3 face=Arial><B><A href="logout.html">Logout</A></B></FONT></TD></TR></TABLE>
+
+<TABLE border=10 cellSpacing=0 cellPadding=0 width="100%"> <TR>
+
+<TD bgColor=#617c58><B><FONT color=#617c58 size=3 face=Tahoma center>
+
+<%
+
+String lname=(String)session.getAttribute("loginname"); String inid=(String)session.getAttribute("id");
+
+out.println("<MARQUEE onmouseover=this.stop() onmouseout=this.start()>welcome guest"<FONT color='white' size=2 face=Tahoma>welcome to OnlineExams</FONT></MARQUEE>");
+
+%>
+
+
+</FONT></B></TD></TR></TABLE>
+
+<FORM action="afteredetails.html" method="post" onSubmit="return verify()">
+
+<TABLE border=0 cellSpacing=0 cellPadding=10 width="100%" bgcolor=#ffffff align=center> <tbody>
+
+<TABLE border=0 cellSpacing=0 cellPadding=10 width="100%" bgcolor=#ffffff align=center> <tbody>
+ 
+
+
+
+
+<tr>
+
+<td width=40% align="left"><img src="15.jpg" width=200 height=150></td> <td align="left"><font size=7><b>Exam Details</b></font></td>
+
+</tr>
+
+</tbody>
+
+</TABLE>
+
+<TABLE border=0 cellSpacing=0 cellPadding=10 width="100%" bgcolor=#ffffff align=center> <tbody>
+
+<tr>
+
+<td align=center colspan="2"><b><h2>Enter the examination details:</h2></b></td> </tr>
+
+<tr>
+
+<td align=right width="50%"><b><font color=#df2332 size=3>Exam Name:</font></b></td> <td align="left"><input name=ExamName type=text></td>
+
+</tr>
+
+<tr>
+
+<td align=right><b><font color=#df2332 size=3>Time Limit:</font></b></td> <td align="left"><input type="text" name="TimeLimit" />( In Minutes )</td>
+
+</tr>
+
+<tr>
+
+<td align=right><b><font color=#df2332 size=3>No. of Question:</font></b></td> <td align="left"><input name=NoOfQues type=text></td>
+
+</tr>
+
+<tr>
+
+<td align=right><b><font color=#df2332 size=3>Passing Marks:</font></b></td> <td align="left"><input name=PassMarks type=text></td>
+
+</tr>
+
+<tr>
+
+<td align=right><b><font color=#df2332 size=3>Positive Marks:</font></b></td> <td align="left"><input name=PositiveMarks type=text></td>
+
+</tr>
+
+<tr>
+
+<td align=right><b><font color=#df2332 size=3>Negative Marks:</font></b></td> <td align="left"><input name=NegativeMarks type=text></td>
+
+</tr>
+
+</tbody>
+
+</TABLE>
+
+<TABLE border=0 cellSpacing=0 cellPadding=10 width="100%" bgcolor=#ffffff align=center> <tbody>
+
+<tr>
+
+<td>&nbsp</td>
+
+<td align="center" colspan="4"><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+
+<input type="button" value="Abort" onClick="Abort()"/>
+ 
+
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>&nbsp</td>
+
+</tr>
+
+</tbody>
+
+</TABLE>
+
+<br>
+
+</tbody></TABLE>
+
+</FORM>
+
+<br>
+
+</body>
+
+</html>

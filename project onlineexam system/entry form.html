@@ -1,0 +1,175 @@
+<html>
+<head>
+<style>
+#headdiv{
+width:1200px;
+height:200px;
+border:1px solid red;
+background-color:#005A31;
+margin-left:10px;
+}
+#col1{
+width:595px;
+height:1200px;
+
+background-color:#A8CD1B;
+margin-left:10px;
+}
+#col2{
+position:absolute;
+width:595px;
+height:1200px;
+
+background-color:#CBE32D;
+
+right:130px;
+top:209px;
+
+}
+#footer
+{
+clear:left;
+
+}
+
+input[type='text']
+{
+background-color:#F3FAB6;
+width:300px;
+border:0px;
+
+}
+input[type='button']
+{
+background-color:#74AFAD;
+
+float:right;
+
+}
+table {
+  width: 90%;
+  max-width: 600px;
+  height: 220px;
+  border-collapse: collapse;
+  border: 1px solid #38678f;
+  margin:auto;
+  background: white;
+}
+th {
+  background: steelblue;
+  height: 24px;
+  width: 25%;
+  font-weight: lighter;
+  text-shadow: 0 1px 0 #38678f;
+  color: white;
+  border: 1px solid #38678f;
+  box-shadow: inset 0px 1px 2px #568ebd;
+  transition: all 0.2s;
+}
+tr {
+  border-bottom: 1px solid #cccccc;
+}
+tr:last-child {
+  border-bottom: 0px;
+}
+td {
+  border-right: 1px solid #cccccc;
+  padding: 10px;
+  transition: all 0.2s;
+}
+td:last-child {
+  border-right: 0px;
+}
+td.selected {
+  background: #d7e4ef;
+  z-index: ;
+}
+td input {
+  font-size: 14px;
+  background: none;
+  outline: none;
+  border: 0;
+  display: table-cell;
+  height: 100%;
+  width: 100%;
+}
+td input:focus {
+  box-shadow: 0 1px 0 steelblue;
+  color: steelblue;
+}
+::-moz-selection {
+  background: steelblue;
+  color: white;
+}
+::selection {
+  background: steelblue;
+  color: white;
+}
+
+</style>
+<title>
+</title>
+<script>
+
+var sr=0;
+var data="";
+function insertdata()
+{
+var name=document.getElementById("stname").value;
+if(data.indexOf(name)==-1){
+sr++;
+
+
+
+
+var roll=document.getElementById("stroll").value;
+document.getElementById("stroll").value="";
+
+var age=document.getElementById("stage").value;
+document.getElementById("stage").value="";
+var str="";
+
+str="<table border='1'><tr><th>sr.</th><th>Name</th><th>Roll Number</th><th>age</th></tr>";
+
+
+data=data+"<tr><td>"+sr +"</td><td>"+name+"</td><td>"+roll +"</td><td>"+age +"</td></tr>";
+var z=str+data+"</table>";
+//alert(z);
+document.getElementById("col2").innerHTML=z;
+
+}else
+alert("Duplicate Entry");
+
+document.getElementById("stname").value="";
+document.getElementById("stname").focus();
+
+}
+</script>
+
+</head>
+
+
+
+
+<body>
+<div id="headdiv">
+</div>
+<div id="col1">
+<table border="0" cellpadding="3" cellspacing="1">
+<tr><th colspan=2>Data Entry Form</th></tr>
+<tr><td>Name:</td><td><input type="text" id="stname"></input></td></tr>
+
+<tr><td>Roll Number:</td><td><input type="text" id="stroll"></input></td></tr>
+
+<tr><td>Age:</td><td><input type="text" id="stage"></input></td></tr>
+
+<tr><td colspan="2"><input type="Button" value="Click Me" onclick="insertdata()"></input></td></tr>
+</table>
+</div>
+
+<div   id="col2">
+
+</div>
+
+</body>
+</html>
